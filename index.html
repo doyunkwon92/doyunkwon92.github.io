@@ -443,6 +443,51 @@
             transform: translateY(0);
         }
 
+        /* Publications Tabs */
+        .pub-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .pub-tab-btn {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .pub-tab-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .pub-tab-btn.active {
+            background-color: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        .pub-item {
+            display: none;
+        }
+
+        .pub-item.show {
+            display: flex;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero-grid {
@@ -539,8 +584,8 @@
                         <div class="research-icon">
                             <i data-lucide="brain-circuit"></i>
                         </div>
-                        <h3>Neurostimulation</h3>
-                        <p>Investigating non-invasive and invasive neuromodulation techniques to enhance neural plasticity and motor recovery following neurological injuries.</p>
+                        <h3>Neurostimulation & Neuropathic Pain</h3>
+                        <p>Identifying the causes of various neuropathic pains and providing appropriate treatments.</p>
                     </div>
                     <div class="research-card">
                         <div class="research-icon">
@@ -551,10 +596,10 @@
                     </div>
                     <div class="research-card">
                         <div class="research-icon">
-                            <i data-lucide="dna"></i>
+                            <i data-lucide="scan"></i>
                         </div>
-                        <h3>Biomarkers</h3>
-                        <p>Identifying reliable neuroimaging and molecular biomarkers for predicting recovery trajectories and personalizing rehabilitation strategies.</p>
+                        <h3>MSK Ultrasound</h3>
+                        <p>Diagnosing the causes of musculoskeletal pain through ultrasound of various joints and providing targeted treatments.</p>
                     </div>
                     <div class="research-card">
                         <div class="research-icon">
@@ -571,10 +616,20 @@
         <section id="publications">
             <div class="container fade-in">
                 <h2 class="section-title">Selected Publications</h2>
+                
+                <!-- Publication Tabs -->
+                <div class="pub-tabs">
+                    <button class="pub-tab-btn active" data-filter="all">All</button>
+                    <button class="pub-tab-btn" data-filter="pain">Pain & Neuropathy</button>
+                    <button class="pub-tab-btn" data-filter="spine">Spine & Interventions</button>
+                    <button class="pub-tab-btn" data-filter="msk">MSK & Ultrasound</button>
+                    <button class="pub-tab-btn" data-filter="other">Other</button>
+                </div>
+
                 <div class="pub-list">
                     
                     <!-- Publication Item -->
-                    <div class="pub-card">
+                    <div class="pub-card pub-item show" data-category="pain">
                         <div class="pub-year">2026</div>
                         <div class="pub-content">
                             <h3>Optimising the Therapeutic Window: A Systematic Review and Network Meta-Analysis of Pregabalin Dosing Strategies for Painful Diabetic Neuropathy</h3>
@@ -589,7 +644,7 @@
                     </div>
 
                     <!-- Publication Item -->
-                    <div class="pub-card">
+                    <div class="pub-card pub-item show" data-category="pain">
                         <div class="pub-year">2025</div>
                         <div class="pub-content">
                             <h3>Comparing the effectiveness of pregabalin and gabapentin in patients with lumbar radiculopathy: A systematic review and meta-analysis</h3>
@@ -604,7 +659,7 @@
                     </div>
 
                     <!-- Publication Item -->
-                    <div class="pub-card">
+                    <div class="pub-card pub-item show" data-category="pain">
                         <div class="pub-year">2025</div>
                         <div class="pub-content">
                             <h3>Acute piriformis syndrome in a military pilot with chronic lumbar radiculopathy: A case report</h3>
@@ -619,7 +674,7 @@
                     </div>
 
                     <!-- Publication Item -->
-                    <div class="pub-card">
+                    <div class="pub-card pub-item show" data-category="spine">
                         <div class="pub-year">2025</div>
                         <div class="pub-content">
                             <h3>Quantitative evaluation of upper extremity strength recovery after cervical epidural block: a retrospective study</h3>
@@ -634,7 +689,7 @@
                     </div>
 
                     <!-- Publication Item -->
-                    <div class="pub-card">
+                    <div class="pub-card pub-item show" data-category="spine">
                         <div class="pub-year">2024</div>
                         <div class="pub-content">
                             <h3>Evaluation of Upper Extremity Muscle Strength Improvement in Patients with Cervical Disc Herniation through Cervical Epidural Block: A Pilot Study</h3>
@@ -649,7 +704,7 @@
                     </div>
 
                     <!-- Publication Item -->
-                    <div class="pub-card">
+                    <div class="pub-card pub-item show" data-category="msk">
                         <div class="pub-year">2024</div>
                         <div class="pub-content">
                             <h3>Clinical impairments and rotator Cuff Tendon pathology in primary and intrinsic secondary adhesive capsulitis</h3>
@@ -664,7 +719,7 @@
                     </div>
 
                     <!-- Publication Item -->
-                    <div class="pub-card">
+                    <div class="pub-card pub-item show" data-category="pain">
                         <div class="pub-year">2022</div>
                         <div class="pub-content">
                             <h3>Comparing the therapeutic effects of pregabalin and gabapentin after transforaminal epidural nerve block in lumbar radiculopathy</h3>
@@ -679,7 +734,7 @@
                     </div>
 
                     <!-- Publication Item -->
-                    <div class="pub-card">
+                    <div class="pub-card pub-item show" data-category="msk">
                         <div class="pub-year">2022</div>
                         <div class="pub-content">
                             <h3>Combination Therapy of Polydeoxyribonucleotide and Microcurrent in Muscle Regeneration on Cast-Induced Muscle Atrophy in Rabbit</h3>
@@ -694,7 +749,7 @@
                     </div>
 
                     <!-- Publication Item -->
-                    <div class="pub-card">
+                    <div class="pub-card pub-item show" data-category="other">
                         <div class="pub-year">2020</div>
                         <div class="pub-content">
                             <h3>Airway invasion in non-neurologically ill patients with dysphagia: Contributing factors and associated problems during swallowing process. A retrospective observational study</h3>
@@ -808,6 +863,34 @@
 
         document.querySelectorAll('.fade-in').forEach(element => {
             observer.observe(element);
+        });
+
+        // Publication Tabs Filtering
+        const pubTabBtns = document.querySelectorAll('.pub-tab-btn');
+        const pubItems = document.querySelectorAll('.pub-item');
+
+        pubTabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                pubTabBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                pubItems.forEach(item => {
+                    // Hide all items first
+                    item.classList.remove('show');
+                    
+                    // Show item if it matches filter or if 'all' is selected
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        // Small timeout to restart animation
+                        setTimeout(() => {
+                            item.classList.add('show');
+                        }, 50);
+                    }
+                });
+            });
         });
     </script>
 </body>
